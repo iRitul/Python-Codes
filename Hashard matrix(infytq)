@@ -1,0 +1,31 @@
+def checker(i):
+    z=i
+    x=i
+    sum=0
+    while x!=0:
+        y=x%10
+        x=x//10
+        sum=sum+y
+    if (z%sum)==0:
+        return 1
+    else :
+        return -1
+m=int(input())
+lst=[]
+u=0
+for i in range(m):
+    lst.append(list(map(int,input().split(","))))
+    count=len(lst[i])
+for i in range(1,m):
+    for j in range(1,count):
+        z=lst[i-1][j-1]
+        k=lst[i-1][j]
+        l=lst[i][j-1]
+        m=lst[i][j]
+        if (checker(m))==1:
+            if ((checker(z)==1) and (checker(k)==1) and (checker(l)==1)):
+                print(z,',',k)
+                print(l,',',m)   
+                u=u+1
+if u==0:
+    print(-1)
