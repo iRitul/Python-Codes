@@ -1,0 +1,26 @@
+MAX = 1501
+dp = [[0 for i in range(MAX)] for i in range(MAX)]
+def counter(a, b):
+    vmin = 10000000000
+    hmin = 10000000000
+    if a == b:
+        return 1
+    if dp[a][b] != 0:
+        return dp[a][b]
+    for i in range(1, a // 2 + 1):
+        hmin = min(counter(i, b) +
+                             counter(a - i, b), hmin)
+    for j in range(1, b // 2 + 1):
+        vmin = min(counter(a, j) +
+                           counter(a, b - j), vmin)
+    dp[a][b] = min(vmin, hmin)
+    return dp[a][b]
+P=int(input())
+Q=int(input())
+R=int(input())
+S=int(input())
+summ=0
+for i in range(P,Q+1):
+    for j in range(R,S+1):
+        summ=summ+counter(i,j)
+print(summ,end='')
