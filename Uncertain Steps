@@ -1,0 +1,12 @@
+q=[0 for i in range(100000)]
+mod=1000000007
+def avgg(x):
+    if q[x]!=0:
+        return q[x]
+    else:
+        if x>=3:
+            return (avgg(x-3)%mod + avgg(x-2)%mod + avgg(x-1)%mod)%mod
+        else:
+            return (x//2+1)
+t=int(input())
+print(avgg(t))
