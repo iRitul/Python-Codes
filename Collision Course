@@ -1,0 +1,13 @@
+import math
+from itertools import combinations as pp
+n=int(input())
+summ=[0 for x in range(n)]
+for i in range(n):
+    x,y,z=map(int,input().split())
+    summ[i]=(math.sqrt(x**2 + y**2)/z)
+h=pp(summ,2)
+count=0
+for i in h:
+    if i[0]==i[1]:
+        count=count+1
+print(count)
