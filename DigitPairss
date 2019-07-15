@@ -1,0 +1,19 @@
+n=int(input())
+odd=[0 for i in range(10)]
+even=[0 for i in range(10)]
+for i in range(n):
+    x=int(input())
+    vec=[]
+    for i in range(3):
+        vec.append(x%10)
+        x=x/10
+    ans=max(vec)*11 + min(vec)*7
+    ans=ans/10
+    d=int(ans%10)
+    if i%2==0:
+        odd[d]=odd[d]+1
+    else:
+        even[d]=even[d]+1
+a=max(odd)
+b=max(even)
+print(max(a,b))
